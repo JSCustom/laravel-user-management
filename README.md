@@ -1,5 +1,5 @@
 
-# Laravel QuickBooks Online API
+# Laravel User Management API
 Laravel package for user management. Includes user, user profile and user role.
 ## Getting Started
 Below are the steps in order to integrate user management API to your Laravel project.
