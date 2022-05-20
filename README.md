@@ -232,6 +232,4 @@ Do a quick migration:
 ```
 
 ## Support
-For support, email jscustom@gmail.com or join our Slack channel.
-
-*Fly high, butterfly! <img src="https://raw.github.com/jscustom/laravel-qbo/master/src/assets/icons/butterfly.svg?sanitize=true" height="14">*
+For support, email developer.jeddsaliba@gmail.com or join our Slack channel.
