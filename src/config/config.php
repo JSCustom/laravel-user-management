@@ -4,82 +4,93 @@ return [
     'model' => [
         'user' => [
             'username' => [
-                'required',
-                'string',
-                'unique:users',
-                'max:70',
-                'min:4'
+                'required' => true,
+                'type' => 'string',
+                'minlength' => 4,
+                'maxlength' => 70
             ],
             'email' => [
-                'required',
-                'email',
-                'unique:users',
-                'max:70'
+                'required' => true,
+                'type' => 'email',
+                'minlength' => 4,
+                'maxlength' => 70
             ],
             'status' => [
-                'required',
-                'integer',
-                'max:1'
+                'required' => true,
+                'type' => 'integer',
+                'default' => 1
             ],
             'role_id' => [
-                'required',
-                'integer',
-                'max:2'
+                'required' => true,
+                'type' => 'integer',
+                'default' => 1
             ]
         ],
         'user_address' => [
             'user_id' => [
-                'required',
-                'integer'
+                'required' => true,
+                'type' => 'integer',
             ],
             'line_1' => [
-                'string',
-                'max:255'
+                'required' => false,
+                'type' => 'string',
+                'minlength' => 4,
+                'maxlength' => 255
             ],
             'line_2' => [
-                'string',
-                'max:255'
+                'required' => false,
+                'type' => 'string',
+                'minlength' => 4,
+                'maxlength' => 255
             ],
             'city_id' => [
-                'integer'
+                'required' => false,
+                'type' => 'integer',
             ],
             'province_id' => [
-                'integer'
+                'required' => false,
+                'type' => 'integer',
             ],
             'postal_code' => [
-                'string',
-                'max:5'
+                'required' => false,
+                'type' => 'string',
+                'minlength' => 3,
+                'maxlength' => 5
             ],
             'country_id' => [
-                'integer'
+                'required' => false,
+                'type' => 'integer',
             ]
         ],
         'user_profile' => [
             'user_id' => [
-                'required',
-                'integer'
+                'required' => true,
+                'type' => 'integer',
             ],
             'first_name' => [
-                'required',
-                'string',
-                'max:70'
+                'required' => true,
+                'type' => 'string',
+                'minlength' => 1,
+                'maxlength' => 70
             ],
             'last_name' => [
-                'required',
-                'string',
-                'max:70'
+                'required' => true,
+                'type' => 'string',
+                'minlength' => 1,
+                'maxlength' => 70
             ]
         ],
         'user_role' => [
             'role' => [
-                'required',
-                'string',
+                'required' => true,
+                'type' => 'string',
                 'unique:user_roles',
-                'max:25'
+                'minlength' => 1,
+                'maxlength' => 25
             ],
             'description' => [
-                'required',
-                'string'
+                'required' => true,
+                'type' => 'string'
             ]
         ]
     ],
