@@ -30,9 +30,22 @@ class UserProfile extends Model
     public function saveData($request, $id = NULL)
     {
         $validator = Validator::make($request->all(), [
-            'user_id' => config('user.model.user_profile.user_id'),
-            'first_name' => config('user.model.user_profile.first_name'),
-            'last_name' => config('user.model.user_profile.last_name')
+            'user_id' => [
+              config('user.model.user_profile.user_id.required') ? 'required' : 'nullable',
+              config('user.model.user_profile.user_id.type')
+            ],
+            'first_name' => [
+              config('user.model.user_profile.first_name.required') ? 'required' : 'nullable',
+              config('user.model.user_profile.first_name.type'),
+              'min:' . config('user.model.user_profile.first_name.minlength') ?? 0,
+              'max:' . config('user.model.user_profile.first_name.maxlength') ?? 255
+            ],
+            'last_name' => [
+              config('user.model.user_profile.last_name.required') ? 'required' : 'nullable',
+              config('user.model.user_profile.last_name.type'),
+              'min:' . config('user.model.user_profile.last_name.minlength') ?? 0,
+              'max:' . config('user.model.user_profile.last_name.maxlength') ?? 255
+            ]
         ]);
         if ($validator->stopOnFirstFailure()->fails()) {
             $errors = $validator->errors();
@@ -42,9 +55,9 @@ class UserProfile extends Model
           'user_id' => $id
         ],
         [
-            'user_id' => $request->user_id,
-            'first_name' => $request->first_name,
-            'last_name' => $request->last_name
+            'user_id' => $request->user_id ?? NULL,
+            'first_name' => $request->first_name ?? NULL,
+            'last_name' => $request->last_name ?? NULL
         ]);
         if (!$userProfile) {
             return (object)['status' => false, 'message' => 'Failed to save user profile.'];

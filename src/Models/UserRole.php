@@ -28,16 +28,26 @@ class UserRole extends Model
     public function store($request)
     {
         $validator = Validator::make($request->all(), [
-            'role' => config('user.model.user_role.role'),
-            'description' => config('user.model.user_role.description')
+            'role' => [
+              config('user.model.user_role.role.required') ? 'required' : 'nullable',
+              config('user.model.user_role.role.type'),
+              'min:' . config('user.model.user_role.role.minlength') ?? 0,
+              'max:' . config('user.model.user_role.role.maxlength') ?? 255
+            ],
+            'description' => [
+              config('user.model.user_role.role.required') ? 'required' : 'nullable',
+              config('user.model.user_role.role.type'),
+              'min:' . config('user.model.user_role.role.minlength') ?? 0,
+              'max:' . config('user.model.user_role.role.maxlength') ?? 255
+            ]
         ]);
         if ($validator->stopOnFirstFailure()->fails()) {
             $errors = $validator->errors();
             return (object)['status' => false, 'message' => $errors->first()];
         }
         $userRole = UserRole::create([
-            'role' => $request->role,
-            'description' => $request->description
+            'role' => $request->role ?? NULL,
+            'description' => $request->description ?? NULL
         ]);
         if (!$userRole) {
             return (object)['status' => false, 'message' => 'Failed to save user role.'];

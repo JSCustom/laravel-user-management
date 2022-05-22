@@ -60,7 +60,13 @@ return [
             'country_id' => [
                 'required' => false,
                 'type' => 'integer',
-            ]
+            ],
+            'other_address_details' => [
+                'required' => false,
+                'type' => 'string',
+                'minlength' => 4,
+                'maxlength' => 255
+            ],
         ],
         'user_profile' => [
             'user_id' => [
@@ -84,13 +90,14 @@ return [
             'role' => [
                 'required' => true,
                 'type' => 'string',
-                'unique:user_roles',
                 'minlength' => 1,
                 'maxlength' => 25
             ],
             'description' => [
                 'required' => true,
-                'type' => 'string'
+                'type' => 'string',
+                'minlength' => 1,
+                'maxlength' => 100
             ]
         ]
     ],

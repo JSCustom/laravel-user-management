@@ -53,11 +53,33 @@ class User extends Authenticatable
   }
   public function saveData($request, $id = NULL)
   {
+    if (!config('user.model.user.status.required')) {
+      $request->status = config('user.model.user.status.default');
+    }
+    if (!config('user.model.user.role_id.required')) {
+      $request->role_id = config('user.model.user.role_id.default');
+    }
     $validator = Validator::make($request->all(), [
-      'username' => config('user.model.user.username'),
-      'email' => config('user.model.user.email'),
-      'status' => config('user.model.user.status'),
-      'role_id' => config('user.model.user.role_id')
+      'username' => [
+        config('user.model.user.username.required') ? 'required' : 'nullable',
+        config('user.model.user.username.type'),
+        'min:' . config('user.model.user.username.minlength') ?? 0,
+        'max:' . config('user.model.user.username.maxlength') ?? 255
+      ],
+      'email' => [
+        config('user.model.user.email.required') ? 'required' : 'nullable',
+        config('user.model.user.email.type'),
+        'min:' . config('user.model.user.email.minlength') ?? 0,
+        'max:' . config('user.model.user.email.maxlength') ?? 255
+      ],
+      'status' => [
+        config('user.model.user.status.required') ? 'required' : 'nullable',
+        config('user.model.user.status.type')
+      ],
+      'role_id' => [
+        config('user.model.user.role_id.required') ? 'required' : 'nullable',
+        config('user.model.user.role_id.type')
+      ]
     ]);
     if ($validator->stopOnFirstFailure()->fails()) {
       $errors = $validator->errors();
@@ -71,8 +93,8 @@ class User extends Authenticatable
       'id' => $id
     ],
     [
-      'username' => $request->username,
-      'email' => $request->email,
+      'username' => $request->username ?? NULL,
+      'email' => $request->email ?? NULL,
       'password' => Hash::make($password),
       'status' => $request->status,
       'role_id' => $request->role_id
