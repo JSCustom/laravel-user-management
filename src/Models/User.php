@@ -63,12 +63,14 @@ class User extends Authenticatable
       'username' => [
         config('user.model.user.username.required') ? 'required' : 'nullable',
         config('user.model.user.username.type'),
+        config('user.model.user.username.unique') ? 'unique:users,username,'.$id.',id' : '',
         'min:' . config('user.model.user.username.minlength') ?? 0,
         'max:' . config('user.model.user.username.maxlength') ?? 255
       ],
       'email' => [
         config('user.model.user.email.required') ? 'required' : 'nullable',
         config('user.model.user.email.type'),
+        config('user.model.user.email.unique') ? 'unique:users,email,'.$id.',id' : '',
         'min:' . config('user.model.user.email.minlength') ?? 0,
         'max:' . config('user.model.user.email.maxlength') ?? 255
       ],
