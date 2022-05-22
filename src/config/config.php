@@ -5,12 +5,14 @@ return [
         'user' => [
             'username' => [
                 'required' => true,
+                'unique' => true,
                 'type' => 'string',
                 'minlength' => 4,
                 'maxlength' => 70
             ],
             'email' => [
                 'required' => true,
+                'unique' => true,
                 'type' => 'email',
                 'minlength' => 4,
                 'maxlength' => 70

@@ -17,8 +17,8 @@ class CreateUsersTable extends Migration
         Schema::dropIfExists('users');
         Schema::create('users', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('username', 255)->unique()->nullable();
-            $table->string('email', 255)->unique()->nullable();
+            $table->string('username', 255)->nullable();
+            $table->string('email', 255)->nullable();
             $table->text('password');
             $table->enum('status', [0, 1])->default(0)->comment('0 = Inactive. 1 = Active');
             $table->unsignedBigInteger('role_id')->index();
