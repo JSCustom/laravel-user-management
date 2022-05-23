@@ -6,6 +6,7 @@ Laravel package for user management. Includes user, user profile and user role.
 
 [Getting Started](#getting-started)
 [Installation](#installation)
+[How to Use](#how-to-use)
 
 <a name="getting-started"></a>
 ## Getting Started
@@ -37,6 +38,7 @@ Do a quick migration:
 php artisan migrate --path=/database/migrations/laravel-user-management
 ```
 
+<a name="how-to-use"></a>
 ## How To Use
 
 ### Download Postman API
