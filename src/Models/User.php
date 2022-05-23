@@ -10,6 +10,7 @@ use Laravel\Sanctum\HasApiTokens;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -106,5 +107,39 @@ class User extends Authenticatable
     }
     $user->password_unhashed = $password;
     return (object)['status' => true, 'message' => 'User has been saved.', 'data' => $user];
+  }
+  public function list($request)
+  {
+    $page = $request->page ?? 1;
+    $limit = $request->limit ?? 10;
+    $search = $request->q ?? null;
+    $fromDate = $request->date_start;
+    $toDate = $request->date_end;
+    if ($fromDate && $toDate) {
+      $startDate = date('Y-m-d', strtotime($fromDate));
+      $lastDate = date('Y-m-d', strtotime($toDate));
+    }
+    \DB::statement("SET SQL_MODE=''");
+    $query = User::join('user_profiles', 'user_profiles.user_id', '=', 'users.id')
+    ->join('user_addresses', 'user_addresses.user_id', '=', 'users.id')
+    ->join('user_roles', 'user_roles.id', '=', 'users.role_id');
+    $query->select(DB::raw('users.id, users.username, users.email, users.created_at, user_profiles.first_name, user_profiles.last_name, user_addresses.line_1, user_addresses.line_2, user_addresses.postal_code, user_addresses.other_address_details'));
+    if ($startDate && $lastDate) {
+      $query->whereBetween('users.created_at', [$startDate, $lastDate]);
+    }
+    if ($search) {
+      $query->where(function($q) use ($search, $request) {
+          $q->where('users.username', 'like', '%'.$search.'%')
+          ->orWhere('users.email', 'like', '%'.$search.'%')
+          ->orWhere('user_profiles.first_name', 'like', '%'.$search.'%')
+          ->orWhere('user_profiles.last_name', 'like', '%'.$search.'%')
+          ->orWhere('user_addresses.line_1', 'like', '%'.$search.'%')
+          ->orWhere('user_addresses.line_2', 'like', '%'.$search.'%')
+          ->orWhere('user_addresses.postal_code', 'like', '%'.$search.'%')
+          ->orWhere('user_addresses.other_address_details', 'like', '%'.$search.'%');
+      });
+    }
+    $list = $query->paginate($request->limit, ['*'], 'page', $request->page);
+    return $list;
   }
 }

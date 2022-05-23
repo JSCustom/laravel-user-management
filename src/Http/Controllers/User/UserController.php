@@ -31,7 +31,7 @@ class UserController extends Controller
         $userAddress = $this->_userAddress->saveData($request);
         if (!$userAddress->status) {
             $this->_user->find($request->user_id)->delete();
-            $this->_userProfile->find($request->user_id)->delete();
+            $this->_userProfile->whereUserId($request->user_id)->delete();
             return response(['status' => $userAddress->status, 'message' => $userAddress->message], HttpServiceProvider::BAD_REQUEST);
         }
         $user->data->userAddress;
@@ -63,10 +63,36 @@ class UserController extends Controller
         $userAddress = $this->_userAddress->saveData($request, $id);
         if (!$userAddress->status) {
             $this->_user->find($request->user_id)->delete();
-            $this->_userProfile->find($request->user_id)->delete();
+            $this->_userProfile->whereUserId($request->user_id)->delete();
             return response(['status' => $userAddress->status, 'message' => $userAddress->message], HttpServiceProvider::BAD_REQUEST);
         }
         $user->data->userAddress;
         return response(['status' => $user->status, 'message' => $user->message, 'payload' => ['user' => $user->data]], HttpServiceProvider::CREATED);
+    }
+    public function destroy(Request $request, $id)
+    {
+        if (config('user.sanctum.enabled')) {
+            if (!Auth::user()->tokenCan('user-delete')) {
+                return response(['status' => false, 'message' => HttpServiceProvider::FORBIDDEN_ACCESS_MESSAGE], HttpServiceProvider::FORBIDDEN_ACCESS);
+            }
+        }
+        $user = $this->_user->find($id);
+        if (!$user) {
+            return response(['status' => false, 'message' => 'Could not find user.'], HttpServiceProvider::BAD_REQUEST);
+        }
+        $this->_user->find($id)->delete();
+        $this->_userProfile->whereUserId($id)->delete();
+        $this->_userAddress->whereUserId($id)->delete();
+        return response(['status' => true, 'message' => 'User has been deleted.'], HttpServiceProvider::OK);
+    }
+    public function list(Request $request)
+    {
+        if (config('user.sanctum.enabled')) {
+            if (!Auth::user()->tokenCan('user-list')) {
+                return response(['status' => false, 'message' => HttpServiceProvider::FORBIDDEN_ACCESS_MESSAGE], HttpServiceProvider::FORBIDDEN_ACCESS);
+            }
+        }
+        $list = $this->_user->list($request);
+        return response(['message' => 'Users found.', 'payload' => ['users' => $list]], HttpServiceProvider::OK);
     }
 }
