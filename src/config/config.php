@@ -91,7 +91,7 @@ return [
         'user_role' => [
             'role' => [
                 'required' => true,
-                'unique' => false,
+                'unique' => true,
                 'type' => 'string',
                 'minlength' => 1,
                 'maxlength' => 25
@@ -111,7 +111,12 @@ return [
             'user-edit',
             'user-list',
             'user-view',
-            'user-delete'
+            'user-delete',
+            'user-role-create',
+            'user-role-edit',
+            'user-role-list',
+            'user-role-view',
+            'user-role-delete'
         ]
     ],
     'middleware' => ['api']
