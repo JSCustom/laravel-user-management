@@ -4,9 +4,9 @@ Laravel package for user management. Includes user, user profile and user role.
 
 ## Table of Contents
 
-[Getting Started](#getting-started)
-[Installation](#installation)
-[How to Use](#how-to-use)
+[Getting Started](#getting-started)<br>
+[Installation](#installation)<br>
+[How to Use](#how-to-use)<br>
 
 <a name="getting-started"></a>
 ## Getting Started
