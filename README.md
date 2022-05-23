@@ -52,7 +52,7 @@ JSCustom\LaravelUserManagement\Models\UserAddress
 JSCustom\LaravelUserManagement\Models\UserProfile
 ```
 
-## Create User API
+### Create User API
 
 **Controller**
 
@@ -143,7 +143,7 @@ POST
 }
 ```
 
-## Update User API
+### Update User API
 
 **Controller**
 
@@ -235,7 +235,7 @@ POST
 }
 ```
 
-## View User API
+### View User API
 
 **Controller**
 
@@ -313,7 +313,7 @@ GET
 }
 ```
 
-## User List API
+### User List API
 
 **Controller**
 
@@ -448,7 +448,7 @@ GET
 }
 ```
 
-## Delete User API
+### Delete User API
 
 **Controller**
 
@@ -502,7 +502,7 @@ DELETE
 JSCustom\LaravelUserManagement\Models\UserRole
 ```
 
-## Create User Role API
+### Create User Role API
 
 **Controller**
 
@@ -558,7 +558,7 @@ POST
 }
 ```
 
-## Update User Role API
+### Update User Role API
 
 **Controller**
 
@@ -614,7 +614,7 @@ POST
 }
 ```
 
-## View User Role API
+### View User Role API
 
 **Controller**
 
@@ -661,7 +661,7 @@ GET
 }
 ```
 
-## User Role List API
+### User Role List API
 
 **Controller**
 
@@ -758,7 +758,7 @@ GET
 }
 ```
 
-## Delete User Role API
+### Delete User Role API
 
 **Controller**
 
@@ -796,5 +796,5 @@ DELETE
 }
 ```
 
-## Support
+### Support
 For support, email developer.jeddsaliba@gmail.com.
