@@ -4,8 +4,9 @@ Laravel package for user management. Includes user, user profile and user role.
 
 ## Table of Contents
 
-[Getting Started](#Getting Started)
+[Getting Started](#getting-started)
 
+<a name="getting-started"></a>
 ## Getting Started
 Below are the steps in order to integrate user management API to your Laravel project.
 ## Installation
