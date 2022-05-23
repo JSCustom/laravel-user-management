@@ -25,7 +25,7 @@ class UserRole extends Model
   // Disable Laravel's mass assignment protection
   protected $guarded = [];
 
-  public function saveData($request)
+  public function saveData($request, $id = NULL)
   {
     $validator = Validator::make($request->all(), [
         'role' => [
