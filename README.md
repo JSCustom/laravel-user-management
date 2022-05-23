@@ -490,11 +490,11 @@ DELETE
 
 **Features**
 
-- Create
-- Update
-- View Details
-- View List
-- Delete
+- Create User Role
+- Update User Role
+- View User Role Details
+- View User Role List
+- Delete User Role
 
 **Models**
 
