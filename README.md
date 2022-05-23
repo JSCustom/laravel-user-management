@@ -75,7 +75,7 @@ JSCustom\LaravelUserManagement\Models\UserRole
 {{url}}/api/user
 ```
 
-**Request**
+**Form Data**
 
 ```bash
 {
@@ -166,7 +166,7 @@ POST
 {{url}}/api/user/$id
 ```
 
-**Request**
+**Form Data**
 
 ```bash
 {
@@ -492,6 +492,300 @@ DELETE
 {
   "status": true,
   "message": "User has been deleted."
+}
+```
+
+## Create User Role API
+
+**Controller**
+
+```bash
+\JSCustom\LaravelUserManagement\Http\Controllers\UserRole\UserRoleController
+```
+
+**URL**
+
+```bash
+{{url}}/api/user-role
+```
+
+**Form Data**
+
+```bash
+{
+  "role": "Staff",
+  "description": "Have access to staff level functions"
+}
+```
+
+**Method**
+
+```bash
+POST
+```
+
+**Headers**
+
+```bash
+{
+  "Authorization": "Bearer ...",
+  "Accept": "application/json"
+}
+```
+
+**Response**
+
+```bash
+{
+  "status": true,
+  "message": "User role been saved.",
+  "payload": {
+    "user_role": {
+      "role": "Staff",
+      "description": "Have access to administrator level functions",
+      "updated_at": "2022-05-23T08:01:10.000000Z",
+      "created_at": "2022-05-23T08:01:10.000000Z",
+      "id": 2
+    }
+  }
+}
+```
+
+## Update User Role API
+
+**Controller**
+
+```bash
+\JSCustom\LaravelUserManagement\Http\Controllers\UserRole\UserRoleController
+```
+
+**URL**
+
+```bash
+{{url}}/api/user-role/$id
+```
+
+**Form Data**
+
+```bash
+{
+  "role": "Staff",
+  "description": "Have access to staff level functions"
+}
+```
+
+**Method**
+
+```bash
+POST
+```
+
+**Headers**
+
+```bash
+{
+  "Authorization": "Bearer ...",
+  "Accept": "application/json"
+}
+```
+
+**Response**
+
+```bash
+{
+  "status": true,
+  "message": "User role been saved.",
+  "payload": {
+    "user_role": {
+      "id": 2,
+      "role": "Staff",
+      "description": "Have access to staff level functions",
+      "created_at": "2022-05-23T08:01:10.000000Z",
+      "updated_at": "2022-05-23T08:02:27.000000Z"
+    }
+  }
+}
+```
+
+## View User Role API
+
+**Controller**
+
+```bash
+\JSCustom\LaravelUserManagement\Http\Controllers\UserRole\UserRoleController
+```
+
+**URL**
+
+```bash
+{{url}}/api/user-role/$id
+```
+
+**Method**
+
+```bash
+GET
+```
+
+**Headers**
+
+```bash
+{
+  "Authorization": "Bearer ...",
+  "Accept": "application/json"
+}
+```
+
+**Response**
+
+```bash
+{
+  "status": true,
+  "message": "User role found.",
+  "payload": {
+    "user_role": {
+      "id": 2,
+      "role": "Staff",
+      "description": "Have access to staff level functions",
+      "created_at": "2022-05-23T08:01:10.000000Z",
+      "updated_at": "2022-05-23T08:02:27.000000Z"
+    }
+  }
+}
+```
+
+## User Role List API
+
+**Controller**
+
+```bash
+\JSCustom\LaravelUserManagement\Http\Controllers\UserRole\UserRoleController
+```
+
+**URL**
+
+```bash
+{{url}}/api/user-role/list
+```
+
+**Parameters**
+
+```bash
+{
+  "page": 1,
+  "limit": 10,
+  "q": '<search_string>',
+  "order_by": '<column_name>',
+  "sort": "asc"
+}
+```
+
+**Method**
+
+```bash
+GET
+```
+
+**Headers**
+
+```bash
+{
+  "Authorization": "Bearer ...",
+  "Accept": "application/json"
+}
+```
+
+**Response**
+
+```bash
+{
+  "message": "User roles found.",
+  "payload": {
+    "user_roles": {
+      "current_page": 1,
+      "data": [
+        {
+            "id": 1,
+            "role": "Developer",
+            "description": "Developer",
+            "created_at": "2022-05-23T15:52:12.000000Z",
+            "updated_at": "2022-05-23T15:52:12.000000Z"
+        },
+        {
+            "id": 2,
+            "role": "Staff",
+            "description": "Have access to staff level functions",
+            "created_at": "2022-05-23T08:01:10.000000Z",
+            "updated_at": "2022-05-23T08:02:27.000000Z"
+        }
+      ],
+      "first_page_url": "http://127.0.0.1:8000/api/user-role/list?page=1",
+      "from": 1,
+      "last_page": 1,
+      "last_page_url": "http://127.0.0.1:8000/api/user-role/list?page=1",
+      "links": [
+        {
+          "url": null,
+          "label": "&laquo; Previous",
+          "active": false
+        },
+        {
+          "url": "http://127.0.0.1:8000/api/user-role/list?page=1",
+          "label": "1",
+          "active": true
+        },
+        {
+          "url": null,
+          "label": "Next &raquo;",
+          "active": false
+        }
+      ],
+      "next_page_url": null,
+      "path": "http://127.0.0.1:8000/api/user-role/list",
+      "per_page": "10",
+      "prev_page_url": null,
+      "to": 2,
+      "total": 2
+    }
+  }
+}
+```
+
+## Delete User Role API
+
+**Controller**
+
+```bash
+\JSCustom\LaravelUserManagement\Http\Controllers\UserRole\UserRoleController
+```
+
+**URL**
+
+```bash
+{{url}}/api/user-role/$id
+```
+
+**Method**
+
+```bash
+DELETE
+```
+
+**Headers**
+
+```bash
+{
+  "Authorization": "Bearer ...",
+  "Accept": "application/json"
+}
+```
+
+**Response**
+
+```bash
+{
+  "status": true,
+  "message": "User role has been deleted."
 }
 ```
 
