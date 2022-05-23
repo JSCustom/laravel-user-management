@@ -4,11 +4,23 @@ Laravel package for user management. Includes user, user profile and user role.
 
 ## Table of Contents
 
-1. [Getting Started](#getting-started)<br>
-2. [Installation](#installation)<br>
-3. [How to Use](#how-to-use)<br>
-- [Download Postman API](#download-postman-api)<br>
-- [User Management](#user-management)<br>
+[Getting Started](#getting-started)<br>
+[Installation](#installation)<br>
+[How to Use](#how-to-use)<br>
+[Download Postman API](#download-postman-api)<br>
+[User Management](#user-management)<br>
+[Create User API](#create-user-api)<br>
+[Update User API](#update-user-api)<br>
+[View User API](#view-user-api)<br>
+[User List API](#user-list-api)<br>
+[Delete User API](#delete-user-api)<br>
+[User Role Management](#user-role-management)<br>
+[Create User Role API](#create-user-role-api)<br>
+[Update User Role API](#update-user-role-api)<br>
+[View User Role API](#view-user-role-api)<br>
+[User Role List API](#user-role-list-api)<br>
+[Delete User Role API](#delete-user-role-api)<br>
+[Support](#support)
 
 <a name="getting-started"></a>
 ## Getting Started
@@ -67,6 +79,7 @@ JSCustom\LaravelUserManagement\Models\UserAddress
 JSCustom\LaravelUserManagement\Models\UserProfile
 ```
 
+<a name="create-user-api"></a>
 ### Create User API
 
 **Controller**
@@ -158,6 +171,7 @@ POST
 }
 ```
 
+<a name="update-user-api"></a>
 ### Update User API
 
 **Controller**
@@ -250,6 +264,7 @@ POST
 }
 ```
 
+<a name="view-user-api"></a>
 ### View User API
 
 **Controller**
@@ -328,6 +343,7 @@ GET
 }
 ```
 
+<a name="user-list-api"></a>
 ### User List API
 
 **Controller**
@@ -463,6 +479,7 @@ GET
 }
 ```
 
+<a name="delete-user-api"></a>
 ### Delete User API
 
 **Controller**
@@ -501,6 +518,7 @@ DELETE
 }
 ```
 
+<a name="user-role-management"></a>
 ### User Role Management
 
 **Features**
@@ -517,6 +535,7 @@ DELETE
 JSCustom\LaravelUserManagement\Models\UserRole
 ```
 
+<a name="create-user-role-api"></a>
 ### Create User Role API
 
 **Controller**
@@ -573,6 +592,7 @@ POST
 }
 ```
 
+<a name="update-user-role-api"></a>
 ### Update User Role API
 
 **Controller**
@@ -629,6 +649,7 @@ POST
 }
 ```
 
+<a name="view-user-role-api"></a>
 ### View User Role API
 
 **Controller**
@@ -676,6 +697,7 @@ GET
 }
 ```
 
+<a name="user-role-list-api"></a>
 ### User Role List API
 
 **Controller**
@@ -773,6 +795,7 @@ GET
 }
 ```
 
+<a name="delete-user-role-api"></a>
 ### Delete User Role API
 
 **Controller**
@@ -811,5 +834,6 @@ DELETE
 }
 ```
 
+<a name="support"></a>
 ### Support
 For support, email developer.jeddsaliba@gmail.com.
