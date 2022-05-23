@@ -790,4 +790,4 @@ DELETE
 ```
 
 ## Support
-For support, email developer.jeddsaliba@gmail.com or join our Slack channel.
+For support, email developer.jeddsaliba@gmail.com.
