@@ -38,11 +38,11 @@ Download the Postman API Collection [here](https://minhaskamal.github.io/DownGit
 
 **Features**
 
-Create
-Update
-View Details
-View List
-Delete
+- Create User
+- Update User
+- View User Details
+- View UserList
+- Delete User
 
 **Models**
 
