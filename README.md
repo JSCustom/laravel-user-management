@@ -4,9 +4,9 @@ Laravel package for user management. Includes user, user profile and user role.
 
 ## Table of Contents
 
-[1. Getting Started](#getting-started)<br>
-[2. Installation](#installation)<br>
-[3. How to Use](#how-to-use)<br>
+1. [Getting Started](#getting-started)<br>
+2. [Installation](#installation)<br>
+3. [How to Use](#how-to-use)<br>
 - [Download Postman API](#download-postman-api)<br>
 - [User Management](#user-management)<br>
 
