@@ -36,10 +36,10 @@ class UserRole extends Model
           'max:' . config('user.model.user_role.role.maxlength') ?? 255
         ],
         'description' => [
-          config('user.model.user_role.role.required') ? 'required' : 'nullable',
-          config('user.model.user_role.role.type'),
-          'min:' . config('user.model.user_role.role.minlength') ?? 0,
-          'max:' . config('user.model.user_role.role.maxlength') ?? 255
+          config('user.model.user_role.description.required') ? 'required' : 'nullable',
+          config('user.model.user_role.description.type'),
+          'min:' . config('user.model.user_role.description.minlength') ?? 0,
+          'max:' . config('user.model.user_role.description.maxlength') ?? 255
         ]
     ]);
     if ($validator->stopOnFirstFailure()->fails()) {
