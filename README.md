@@ -61,7 +61,7 @@ JSCustom\LaravelUserManagement\Models\UserProfile
 JSCustom\LaravelUserManagement\Models\UserRole
 ```
 
-## Create User
+## Create User API
 
 **Controller**
 
@@ -79,12 +79,12 @@ JSCustom\LaravelUserManagement\Models\UserRole
 
 ```bash
 {
-  "username": "johnslatery"
-  "email": "johnslatery@mail.com"
-  "status": 1
-  "role_id": 1
-  "first_name": "John"
-  "last_name": "Slatery"
+  "username": "stevengrant",
+  "email": "stevengrant@mail.com",
+  "status": 1,
+  "role_id": 1,
+  "first_name": "Steven",
+  "last_name": "Grant",
 }
 ```
 
@@ -111,32 +111,32 @@ POST
   "message": "User has been saved.",
   "payload": {
     "user": {
-      "username": "johnslatery",
-      "email": "johnslatery@mail.com",
+      "username": "stevengrant",
+      "email": "stevengrant@mail.com",
       "status": 1,
       "role_id": 1,
-      "updated_at": "2022-05-20T14:41:03.000000Z",
-      "created_at": "2022-05-20T14:41:03.000000Z",
-      "id": 19,
-      "password_unhashed": "NWE6YN9V",
+      "updated_at": "2022-05-23T07:52:41.000000Z",
+      "created_at": "2022-05-23T07:52:41.000000Z",
+      "id": 2,
+      "password_unhashed": "X2QQTVZZ",
       "user_role": {
         "id": 1,
         "role": "Developer",
         "description": "Developer",
-        "created_at": "2022-05-17T12:55:53.000000Z",
-        "updated_at": "2022-05-17T12:55:53.000000Z"
+        "created_at": "2022-05-23T15:52:12.000000Z",
+        "updated_at": "2022-05-23T15:52:12.000000Z"
       },
       "user_profile": {
-        "id": 9,
-        "user_id": 19,
-        "first_name": "John",
-        "last_name": "Slatery",
-        "created_at": "2022-05-20T14:41:03.000000Z",
-        "updated_at": "2022-05-20T14:41:03.000000Z"
+        "id": 2,
+        "user_id": 2,
+        "first_name": "Steven",
+        "last_name": "Grant",
+        "created_at": "2022-05-23T07:52:41.000000Z",
+        "updated_at": "2022-05-23T07:52:41.000000Z"
       },
       "user_address": {
-        "id": 9,
-        "user_id": 19,
+        "id": 2,
+        "user_id": 2,
         "line_1": null,
         "line_2": null,
         "city_id": null,
@@ -144,15 +144,15 @@ POST
         "postal_code": null,
         "country_id": null,
         "other_address_details": null,
-        "created_at": "2022-05-20T14:41:03.000000Z",
-        "updated_at": "2022-05-20T14:41:03.000000Z"
+        "created_at": "2022-05-23T07:52:41.000000Z",
+        "updated_at": "2022-05-23T07:52:41.000000Z"
       }
     }
   }
 }
 ```
 
-## Update User
+## Update User API
 
 **Controller**
 
@@ -170,12 +170,12 @@ POST
 
 ```bash
 {
-  "username": "johnslatery"
-  "email": "johnslatery@mail.com"
-  "status": 1
-  "role_id": 1
-  "first_name": "John"
-  "last_name": "Slatery"
+  "username": "stevengrant",
+  "email": "stevengrant@mail.com",
+  "status": 1,
+  "role_id": 1,
+  "first_name": "Steven",
+  "last_name": "Grant"
 }
 ```
 
@@ -202,32 +202,33 @@ POST
   "message": "User has been saved.",
   "payload": {
     "user": {
-      "username": "johnslatery",
-      "email": "johnslatery@mail.com",
+      "id": 2,
+      "username": "stevengrant",
+      "email": "stevengrant@mail.com",
       "status": 1,
       "role_id": 1,
-      "updated_at": "2022-05-20T14:41:03.000000Z",
-      "created_at": "2022-05-20T14:41:03.000000Z",
-      "id": 19,
-      "password_unhashed": "NWE6YN9V",
+      "email_verified_at": null,
+      "created_at": "2022-05-23T07:52:41.000000Z",
+      "updated_at": "2022-05-23T07:54:02.000000Z",
+      "password_unhashed": "OHYY0NB6",
       "user_role": {
         "id": 1,
         "role": "Developer",
         "description": "Developer",
-        "created_at": "2022-05-17T12:55:53.000000Z",
-        "updated_at": "2022-05-17T12:55:53.000000Z"
+        "created_at": "2022-05-23T15:52:12.000000Z",
+        "updated_at": "2022-05-23T15:52:12.000000Z"
       },
       "user_profile": {
-        "id": 9,
-        "user_id": 19,
-        "first_name": "John",
-        "last_name": "Slatery",
-        "created_at": "2022-05-20T14:41:03.000000Z",
-        "updated_at": "2022-05-20T14:41:03.000000Z"
+        "id": 2,
+        "user_id": 2,
+        "first_name": "Steven",
+        "last_name": "Grant",
+        "created_at": "2022-05-23T07:52:41.000000Z",
+        "updated_at": "2022-05-23T07:52:41.000000Z"
       },
       "user_address": {
-        "id": 9,
-        "user_id": 19,
+        "id": 2,
+        "user_id": 2,
         "line_1": null,
         "line_2": null,
         "city_id": null,
@@ -235,11 +236,262 @@ POST
         "postal_code": null,
         "country_id": null,
         "other_address_details": null,
-        "created_at": "2022-05-20T14:41:03.000000Z",
-        "updated_at": "2022-05-20T14:41:03.000000Z"
+        "created_at": "2022-05-23T07:52:41.000000Z",
+        "updated_at": "2022-05-23T07:52:41.000000Z"
       }
     }
   }
+}
+```
+
+## View User API
+
+**Controller**
+
+```bash
+\JSCustom\LaravelUserManagement\Http\Controllers\User\UserController
+```
+
+**URL**
+
+```bash
+{{url}}/api/user/$id
+```
+
+**Method**
+
+```bash
+GET
+```
+
+**Headers**
+
+```bash
+{
+  "Authorization": "Bearer ...",
+  "Accept": "application/json"
+}
+```
+
+**Response**
+
+```bash
+{
+  "status": true,
+  "message": "User found.",
+  "payload": {
+    "user": {
+      "id": 2,
+      "username": "stevengrant",
+      "email": "stevengrant@mail.com",
+      "status": 1,
+      "role_id": 1,
+      "email_verified_at": null,
+      "created_at": "2022-05-23T07:52:41.000000Z",
+      "updated_at": "2022-05-23T07:54:02.000000Z",
+      "user_role": {
+        "id": 1,
+        "role": "Developer",
+        "description": "Developer",
+        "created_at": "2022-05-23T15:52:12.000000Z",
+        "updated_at": "2022-05-23T15:52:12.000000Z"
+      },
+      "user_profile": {
+        "id": 2,
+        "user_id": 2,
+        "first_name": "Steven",
+        "last_name": "Grant",
+        "created_at": "2022-05-23T07:52:41.000000Z",
+        "updated_at": "2022-05-23T07:52:41.000000Z"
+      },
+      "user_address": {
+        "id": 2,
+        "user_id": 2,
+        "line_1": null,
+        "line_2": null,
+        "city_id": null,
+        "province_id": null,
+        "postal_code": null,
+        "country_id": null,
+        "other_address_details": null,
+        "created_at": "2022-05-23T07:52:41.000000Z",
+        "updated_at": "2022-05-23T07:52:41.000000Z"
+      }
+    }
+  }
+}
+```
+
+## User List API
+
+**Controller**
+
+```bash
+\JSCustom\LaravelUserManagement\Http\Controllers\User\UserController
+```
+
+**URL**
+
+```bash
+{{url}}/api/user/list
+```
+
+**Parameters**
+
+```bash
+{
+  "page": 1,
+  "limit": 10,
+  "q": '<search_string>',
+  "order_by": '<column_name>',
+  "sort": "asc"
+}
+```
+
+**Method**
+
+```bash
+GET
+```
+
+**Headers**
+
+```bash
+{
+  "Authorization": "Bearer ...",
+  "Accept": "application/json"
+}
+```
+
+**Response**
+
+```bash
+{
+  "message": "Users found.",
+  "payload": {
+    "users": {
+      "current_page": 1,
+      "data": [
+        {
+          "id": 1,
+          "username": "developer",
+          "email": "developer@mail.com",
+          "created_at": "2022-05-23T15:52:12.000000Z",
+          "first_name": "Developer",
+          "last_name": "Developer",
+          "line_1": null,
+          "line_2": null,
+          "postal_code": null,
+          "other_address_details": null,
+          "role": "Developer"
+        },
+        {
+          "id": 3,
+          "username": "jakelockley",
+          "email": "jakelockley@mail.com",
+          "created_at": "2022-05-23T07:55:58.000000Z",
+          "first_name": "Jake",
+          "last_name": "Lockley",
+          "line_1": null,
+          "line_2": null,
+          "postal_code": null,
+          "other_address_details": null,
+          "role": "Developer"
+        },
+        {
+          "id": 4,
+          "username": "marcspector",
+          "email": "marcspector@mail.com",
+          "created_at": "2022-05-23T07:56:15.000000Z",
+          "first_name": "Marc",
+          "last_name": "Spector",
+          "line_1": null,
+          "line_2": null,
+          "postal_code": null,
+          "other_address_details": null,
+          "role": "Developer"
+        },
+        {
+          "id": 2,
+          "username": "stevengrant",
+          "email": "stevengrant@mail.com",
+          "created_at": "2022-05-23T07:52:41.000000Z",
+          "first_name": "Steven",
+          "last_name": "Grant",
+          "line_1": null,
+          "line_2": null,
+          "postal_code": null,
+          "other_address_details": null,
+          "role": "Developer"
+        }
+      ],
+      "first_page_url": "http://127.0.0.1:8000/api/user/list?page=1",
+      "from": 1,
+      "last_page": 1,
+      "last_page_url": "http://127.0.0.1:8000/api/user/list?page=1",
+      "links": [
+        {
+          "url": null,
+          "label": "&laquo; Previous",
+          "active": false
+        },
+        {
+          "url": "http://127.0.0.1:8000/api/user/list?page=1",
+          "label": "1",
+          "active": true
+        },
+        {
+          "url": null,
+          "label": "Next &raquo;",
+          "active": false
+        }
+      ],
+      "next_page_url": null,
+      "path": "http://127.0.0.1:8000/api/user/list",
+      "per_page": "10",
+      "prev_page_url": null,
+      "to": 4,
+      "total": 4
+    }
+  }
+}
+```
+
+## Delete User API
+
+**Controller**
+
+```bash
+\JSCustom\LaravelUserManagement\Http\Controllers\User\UserController
+```
+
+**URL**
+
+```bash
+{{url}}/api/user/$id
+```
+
+**Method**
+
+```bash
+DELETE
+```
+
+**Headers**
+
+```bash
+{
+  "Authorization": "Bearer ...",
+  "Accept": "application/json"
+}
+```
+
+**Response**
+
+```bash
+{
+  "status": true,
+  "message": "User has been deleted."
 }
 ```
 
