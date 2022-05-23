@@ -30,6 +30,10 @@ php artisan migrate --path=/database/migrations/laravel-user-management
 
 ## How To Use
 
+### Download Postman API
+
+Download the Postman API Collection [here](https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/JSCustom/laravel-user-management/blob/master/src/assets/postman/Laravel_User_Management.postman_collection.json).
+
 ### User Management
 
 **Features**
