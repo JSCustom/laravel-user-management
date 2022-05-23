@@ -140,6 +140,11 @@ class User extends Authenticatable
           ->orWhere('user_roles.role', 'like', '%'.$search.'%');
       });
     }
+    if ($request->order_by && $request->sort) {
+      $query->orderBy($request->order_by,  $request->sort);
+    } else {
+      $query->orderBy('created_at', 'desc');
+    }
     $list = $query->paginate($request->limit, ['*'], 'page', $request->page);
     return $list;
   }

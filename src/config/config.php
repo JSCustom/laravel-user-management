@@ -91,6 +91,7 @@ return [
         'user_role' => [
             'role' => [
                 'required' => true,
+                'unique' => false,
                 'type' => 'string',
                 'minlength' => 1,
                 'maxlength' => 25
