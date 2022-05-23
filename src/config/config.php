@@ -105,19 +105,19 @@ return [
         ]
     ],
     'sanctum' => [
-        'enabled' => false,
-        'modules' => [
-            'user-create',
-            'user-edit',
-            'user-list',
-            'user-view',
-            'user-delete',
-            'user-role-create',
-            'user-role-edit',
-            'user-role-list',
-            'user-role-view',
-            'user-role-delete'
-        ]
+        'enabled' => false
+    ],
+    'abilities' => [
+        'user-create',
+        'user-edit',
+        'user-list',
+        'user-view',
+        'user-delete',
+        'user-role-create',
+        'user-role-edit',
+        'user-role-list',
+        'user-role-view',
+        'user-role-delete'
     ],
     'middleware' => ['api']
 ];

@@ -2,12 +2,11 @@
 use Illuminate\Support\Facades\Route;
 use JSCustom\LaravelUserManagement\Http\Controllers\User\UserController;
 use JSCustom\LaravelUserManagement\Http\Controllers\UserRole\UserRoleController;
-use JSCustom\LaravelUserManagement\Providers\AuthServiceProvider;
 
 if (config('user.sanctum.enabled')) {
     Route::group(['middleware' => [
         'auth:sanctum',
-        'ability:'.implode(',', AuthServiceProvider::USER_MANAGEMENT_ABILITIES)
+        'ability:'.implode(',', config('user.abilities'))
         ]
     ], function() {
         Route::group(['prefix' => 'user'], function() {
