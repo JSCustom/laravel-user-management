@@ -67,7 +67,7 @@ class UserController extends Controller
             return response(['status' => $userAddress->status, 'message' => $userAddress->message], HttpServiceProvider::BAD_REQUEST);
         }
         $user->data->userAddress;
-        return response(['status' => $user->status, 'message' => $user->message, 'payload' => ['user' => $user->data]], HttpServiceProvider::CREATED);
+        return response(['status' => $user->status, 'message' => $user->message, 'payload' => ['user' => $user->data]], HttpServiceProvider::OK);
     }
     public function destroy(Request $request, $id)
     {
