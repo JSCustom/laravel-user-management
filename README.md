@@ -38,19 +38,11 @@ Download the Postman API Collection [here](https://minhaskamal.github.io/DownGit
 
 **Features**
 
-- Users
-  - Create
-  - Update
-  - View Details
-  - View List
-  - Delete
-
-- User Roles
-  - Create
-  - Update
-  - View Details
-  - View List
-  - Delete
+Create
+Update
+View Details
+View List
+Delete
 
 **Models**
 
@@ -58,7 +50,6 @@ Download the Postman API Collection [here](https://minhaskamal.github.io/DownGit
 JSCustom\LaravelUserManagement\Models\User
 JSCustom\LaravelUserManagement\Models\UserAddress
 JSCustom\LaravelUserManagement\Models\UserProfile
-JSCustom\LaravelUserManagement\Models\UserRole
 ```
 
 ## Create User API
@@ -493,6 +484,22 @@ DELETE
   "status": true,
   "message": "User has been deleted."
 }
+```
+
+### User Role Management
+
+**Features**
+
+- Create
+- Update
+- View Details
+- View List
+- Delete
+
+**Models**
+
+```bash
+JSCustom\LaravelUserManagement\Models\UserRole
 ```
 
 ## Create User Role API
