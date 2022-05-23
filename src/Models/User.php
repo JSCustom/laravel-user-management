@@ -113,8 +113,8 @@ class User extends Authenticatable
     $page = $request->page ?? 1;
     $limit = $request->limit ?? 10;
     $search = $request->q ?? null;
-    $fromDate = $request->date_start;
-    $toDate = $request->date_end;
+    $fromDate = $request->date_start ?? NULL;
+    $toDate = $request->date_end ?? NULL;
     if ($fromDate && $toDate) {
       $startDate = date('Y-m-d', strtotime($fromDate));
       $lastDate = date('Y-m-d', strtotime($toDate));
