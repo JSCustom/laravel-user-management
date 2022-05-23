@@ -92,16 +92,28 @@ class User extends Authenticatable
     if ($request->password) {
       $password = $request->password;
     }
-    $user = User::updateOrCreate([
-      'id' => $id
-    ],
-    [
-      'username' => $request->username ?? NULL,
-      'email' => $request->email ?? NULL,
-      'password' => Hash::make($password),
-      'status' => $request->status,
-      'role_id' => $request->role_id
-    ]);
+    if ($id) {
+      $user = User::updateOrCreate([
+        'id' => $id
+      ],
+      [
+        'username' => $request->username ?? NULL,
+        'email' => $request->email ?? NULL,
+        'status' => $request->status,
+        'role_id' => $request->role_id
+      ]);
+    } else {
+      $user = User::updateOrCreate([
+        'id' => $id
+      ],
+      [
+        'username' => $request->username ?? NULL,
+        'email' => $request->email ?? NULL,
+        'password' => Hash::make($password),
+        'status' => $request->status,
+        'role_id' => $request->role_id
+      ]);
+    }
     if (!$user) {
       return (object)['status' => false, 'message' => 'Failed to save user.'];
     }
