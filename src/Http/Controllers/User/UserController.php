@@ -95,4 +95,20 @@ class UserController extends Controller
         $list = $this->_user->list($request);
         return response(['message' => 'Users found.', 'payload' => ['users' => $list]], HttpServiceProvider::OK);
     }
+    public function show(Request $request, $id)
+    {
+        if (config('user.sanctum.enabled')) {
+            if (!Auth::user()->tokenCan('user-view')) {
+                return response(['status' => false, 'message' => HttpServiceProvider::FORBIDDEN_ACCESS_MESSAGE], HttpServiceProvider::FORBIDDEN_ACCESS);
+            }
+        }
+        $user = $this->_user->find($id);
+        if (!$user) {
+            return response(['status' => false, 'message' => 'Could not find user.'], HttpServiceProvider::BAD_REQUEST);
+        }
+        $user->userRole;
+        $user->userProfile;
+        $user->userAddress;
+        return response(['status' => true, 'message' => 'User found.', 'payload' => ['user' => $user]], HttpServiceProvider::OK);
+    }
 }
