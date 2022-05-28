@@ -114,7 +114,7 @@ POST
 ```
 
 **Headers**<br>
-**Note: `Authorization` is optional. If `sanctum > enabled = true` in `config/user.php`)**
+(**Note: `Authorization` is not required if `sanctum > enabled = false` in `config/user.php`)**
 
 ```bash
 {
