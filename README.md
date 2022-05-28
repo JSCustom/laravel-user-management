@@ -113,7 +113,7 @@ JSCustom\LaravelUserManagement\Models\UserProfile
 POST
 ```
 
-**Headers**
+**Headers (Optional. If `sanctum > enabled = true` in `config/user.php`)**
 
 ```bash
 {
