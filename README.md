@@ -206,7 +206,8 @@ POST
 POST
 ```
 
-**Headers**
+**Headers**<br>
+(**Note: `Authorization` is not required if `sanctum > enabled = false` in `config/user.php`)**
 
 ```bash
 {
@@ -286,7 +287,8 @@ POST
 GET
 ```
 
-**Headers**
+**Headers**<br>
+(**Note: `Authorization` is not required if `sanctum > enabled = false` in `config/user.php`)**
 
 ```bash
 {
@@ -377,7 +379,8 @@ GET
 GET
 ```
 
-**Headers**
+**Headers**<br>
+(**Note: `Authorization` is not required if `sanctum > enabled = false` in `config/user.php`)**
 
 ```bash
 {
@@ -501,7 +504,8 @@ GET
 DELETE
 ```
 
-**Headers**
+**Headers**<br>
+(**Note: `Authorization` is not required if `sanctum > enabled = false` in `config/user.php`)**
 
 ```bash
 {
@@ -566,7 +570,8 @@ JSCustom\LaravelUserManagement\Models\UserRole
 POST
 ```
 
-**Headers**
+**Headers**<br>
+(**Note: `Authorization` is not required if `sanctum > enabled = false` in `config/user.php`)**
 
 ```bash
 {
@@ -623,7 +628,8 @@ POST
 POST
 ```
 
-**Headers**
+**Headers**<br>
+(**Note: `Authorization` is not required if `sanctum > enabled = false` in `config/user.php`)**
 
 ```bash
 {
@@ -671,7 +677,8 @@ POST
 GET
 ```
 
-**Headers**
+**Headers**<br>
+(**Note: `Authorization` is not required if `sanctum > enabled = false` in `config/user.php`)**
 
 ```bash
 {
@@ -731,7 +738,8 @@ GET
 GET
 ```
 
-**Headers**
+**Headers**<br>
+(**Note: `Authorization` is not required if `sanctum > enabled = false` in `config/user.php`)**
 
 ```bash
 {
@@ -817,7 +825,8 @@ GET
 DELETE
 ```
 
-**Headers**
+**Headers**<br>
+(**Note: `Authorization` is not required if `sanctum > enabled = false` in `config/user.php`)**
 
 ```bash
 {
