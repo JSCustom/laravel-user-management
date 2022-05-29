@@ -368,8 +368,10 @@ GET
   "page": 1,
   "limit": 10,
   "q": '<search_string>',
-  "order_by": '<column_name>',
-  "sort": "asc"
+  "order_column": '<column_name>',
+  "order_direction": "asc",
+  "created_from": "2022-01-01",
+  "created_to": "2022-05-31"
 }
 ```
 
@@ -727,8 +729,10 @@ GET
   "page": 1,
   "limit": 10,
   "q": '<search_string>',
-  "order_by": '<column_name>',
-  "sort": "asc"
+  "order_column": '<column_name>',
+  "order_direction": "asc",
+  "created_from": "2022-01-01",
+  "created_to": "2022-05-31"
 }
 ```
 
