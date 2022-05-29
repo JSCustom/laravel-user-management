@@ -63,16 +63,16 @@ class UserRole extends Model
     $page = $request->page ?? 1;
     $limit = $request->limit ?? 10;
     $search = $request->q ?? null;
-    $startDate = $request->date_start ?? NULL;
-    $lastDate = $request->date_end ?? NULL;
-    if ($startDate && $lastDate) {
-      $startDate = date('Y-m-d', strtotime($fromDate));
-      $lastDate = date('Y-m-d', strtotime($toDate));
+    $createdFrom = $request->created_from ?? NULL;
+    $createdTo = $request->created_to ?? NULL;
+    if ($createdFrom && $createdTo) {
+      $createdFrom = date('Y-m-d', strtotime($createdFrom));
+      $createdTo = date('Y-m-d', strtotime($createdTo));
     }
     \DB::statement("SET SQL_MODE=''");
     $query = UserRole::select('*');
-    if ($startDate && $lastDate) {
-      $query->whereBetween('user_roles.created_at', [$startDate, $lastDate]);
+    if ($createdFrom && $createdTo) {
+      $query->whereBetween('user_roles.created_at', [$createdFrom, $createdTo]);
     }
     if ($search) {
       $query->where(function($q) use ($search, $request) {
@@ -80,8 +80,8 @@ class UserRole extends Model
           ->orWhere('user_roles.description', 'like', '%'.$search.'%');
       });
     }
-    if ($request->order_by && $request->sort) {
-      $query->orderBy($request->order_by,  $request->sort);
+    if ($request->order_column && $request->order_direction) {
+      $query->orderBy($request->order_column,  $request->order_direction);
     } else {
       $query->orderBy('created_at', 'desc');
     }

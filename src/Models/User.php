@@ -125,19 +125,19 @@ class User extends Authenticatable
     $page = $request->page ?? 1;
     $limit = $request->limit ?? 10;
     $search = $request->q ?? null;
-    $startDate = $request->date_start ?? NULL;
-    $lastDate = $request->date_end ?? NULL;
-    if ($startDate && $lastDate) {
-      $startDate = date('Y-m-d', strtotime($fromDate));
-      $lastDate = date('Y-m-d', strtotime($toDate));
+    $createdFrom = $request->created_from ?? NULL;
+    $createdTo = $request->created_to ?? NULL;
+    if ($createdFrom && $createdTo) {
+      $createdFrom = date('Y-m-d', strtotime($createdFrom));
+      $createdTo = date('Y-m-d', strtotime($createdTo));
     }
     \DB::statement("SET SQL_MODE=''");
     $query = User::join('user_profiles', 'user_profiles.user_id', '=', 'users.id')
     ->join('user_addresses', 'user_addresses.user_id', '=', 'users.id')
     ->join('user_roles', 'user_roles.id', '=', 'users.role_id');
     $query->select(DB::raw('users.id, users.username, users.email, users.created_at, user_profiles.first_name, user_profiles.last_name, user_addresses.line_1, user_addresses.line_2, user_addresses.postal_code, user_addresses.other_address_details, user_roles.role'));
-    if ($startDate && $lastDate) {
-      $query->whereBetween('users.created_at', [$startDate, $lastDate]);
+    if ($createdFrom && $createdTo) {
+      $query->whereBetween('users.created_at', [$createdFrom, $createdTo]);
     }
     if ($search) {
       $query->where(function($q) use ($search, $request) {
@@ -152,8 +152,8 @@ class User extends Authenticatable
           ->orWhere('user_roles.role', 'like', '%'.$search.'%');
       });
     }
-    if ($request->order_by && $request->sort) {
-      $query->orderBy($request->order_by,  $request->sort);
+    if ($request->order_column && $request->order_direction) {
+      $query->orderBy($request->order_column,  $request->order_direction);
     } else {
       $query->orderBy('created_at', 'desc');
     }
