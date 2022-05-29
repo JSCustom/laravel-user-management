@@ -113,12 +113,16 @@ class UserController extends Controller
     }
     public function generateToken(Request $request)
     {
-        $accessToken = null;
-        $user = $this->_user->find(1);
-        if (!$user) {
-            return response(['status' => false, 'message' => 'Could not generate token.'], HttpServiceProvider::BAD_REQUEST);
+        if (config('user.sanctum.enabled')) {
+            $accessToken = null;
+            $user = $this->_user->find(1);
+            if (!$user) {
+                return response(['status' => false, 'message' => 'Could not generate token.'], HttpServiceProvider::BAD_REQUEST);
+            }
+            $accessToken = $user->createToken('access_token', config('user.abilities'));
+            return response(['status' => true, 'message' => 'Access token generated.', 'payload' => ['access_token' => $accessToken->plainTextToken]]);
+        } else {
+            return response(['status' => false, 'message' => 'Please enable sanctum in config/user.php.'], HttpServiceProvider::BAD_REQUEST);
         }
-        $accessToken = $user->createToken('access_token', config('user.abilities'));
-        return response(['status' => true, 'message' => 'Access token generated.', 'payload' => ['access_token' => $accessToken->plainTextToken]]);
     }
 }
