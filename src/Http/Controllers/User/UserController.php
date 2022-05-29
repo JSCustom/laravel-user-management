@@ -122,7 +122,7 @@ class UserController extends Controller
             $accessToken = $user->createToken('access_token', config('user.abilities'));
             return response(['status' => true, 'message' => 'Access token generated.', 'payload' => ['access_token' => $accessToken->plainTextToken]]);
         } else {
-            return response(['status' => false, 'message' => 'Please enable sanctum in config/user.php.'], HttpServiceProvider::BAD_REQUEST);
+            return response(['status' => false, 'message' => 'Please enable sanctum in config/user file.'], HttpServiceProvider::BAD_REQUEST);
         }
     }
 }
