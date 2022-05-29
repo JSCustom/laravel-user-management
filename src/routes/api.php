@@ -3,6 +3,9 @@ use Illuminate\Support\Facades\Route;
 use JSCustom\LaravelUserManagement\Http\Controllers\User\UserController;
 use JSCustom\LaravelUserManagement\Http\Controllers\UserRole\UserRoleController;
 
+Route::group(['prefix' => 'token'], function() {
+    Route::post('/generate', [UserController::class, 'generateToken']);
+});
 if (config('user.sanctum.enabled')) {
     Route::group(['middleware' => [
         'auth:sanctum',
