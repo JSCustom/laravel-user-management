@@ -1,9 +1,9 @@
 {
 	"info": {
-		"_postman_id": "b87ee693-27d8-4a6f-a0b9-681f13e88129",
+		"_postman_id": "1ab8e72a-c587-498d-872b-3f43137bfc17",
 		"name": "Laravel User Management",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "18657858"
+		"_exporter_id": "21205296"
 	},
 	"item": [
 		{
@@ -28,12 +28,12 @@
 							"formdata": [
 								{
 									"key": "username",
-									"value": "johnslatery2",
+									"value": "john",
 									"type": "text"
 								},
 								{
 									"key": "email",
-									"value": "johnslatery2@mail.com",
+									"value": "john@mail.com",
 									"type": "text"
 								},
 								{
@@ -216,7 +216,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/user/list?page=1&limit=10&order_by=first_name&sort=asc",
+							"raw": "http://127.0.0.1:8000/api/user/list?page=1&limit=10&order_column=first_name&order_direction=asc&created_from=2022-01-01&created_to=2022-05-30",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -245,13 +245,21 @@
 									"disabled": true
 								},
 								{
-									"key": "order_by",
+									"key": "order_column",
 									"value": "first_name"
 								},
 								{
-									"key": "sort",
+									"key": "order_direction",
 									"value": "asc",
 									"description": "ASC | asc | DESC | desc"
+								},
+								{
+									"key": "created_from",
+									"value": "2022-01-01"
+								},
+								{
+									"key": "created_to",
+									"value": "2022-05-30"
 								}
 							]
 						}
@@ -430,7 +438,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://127.0.0.1:8000/api/user-role/list?page=1&limit=10&order_by=role&sort=asc",
+							"raw": "http://127.0.0.1:8000/api/user-role/list?page=1&limit=10&order_column=role&order_direction=asc&created_from=2022-01-01&created_to=2022-05-30",
 							"protocol": "http",
 							"host": [
 								"127",
@@ -459,13 +467,21 @@
 									"disabled": true
 								},
 								{
-									"key": "order_by",
+									"key": "order_column",
 									"value": "role"
 								},
 								{
-									"key": "sort",
+									"key": "order_direction",
 									"value": "asc",
 									"description": "ASC | asc | DESC | desc"
+								},
+								{
+									"key": "created_from",
+									"value": "2022-01-01"
+								},
+								{
+									"key": "created_to",
+									"value": "2022-05-30"
 								}
 							]
 						}
