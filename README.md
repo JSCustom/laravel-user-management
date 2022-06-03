@@ -29,7 +29,7 @@ Below are the steps in order to integrate user management API to your Laravel pr
 
 <a name="compatible-packages"></a>
 ## Compatible Packages
-This package works well with [`Laravel Sanctum`](https://laravel.com/docs/7.x/sanctum).
+This package works well with [Laravel Sanctum](https://laravel.com/docs/7.x/sanctum).
 
 <a name="installation"></a>
 ## Installation
