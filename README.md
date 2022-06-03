@@ -5,6 +5,7 @@ Laravel package for user management. Includes user, user profile and user role.
 ## Table of Contents
 
 [Getting Started](#getting-started)<br>
+[Compatible Packages](#compatible-packages)<br>
 [Installation](#installation)<br>
 [How to Use](#how-to-use)<br>
 [Download Postman API](#download-postman-api)<br>
@@ -25,6 +26,10 @@ Laravel package for user management. Includes user, user profile and user role.
 <a name="getting-started"></a>
 ## Getting Started
 Below are the steps in order to integrate user management API to your Laravel project.
+
+<a name="compatible-packages"></a>
+## Compatible Packages
+This package works well with [`Laravel Sanctum`](https://laravel.com/docs/7.x/sanctum).
 
 <a name="installation"></a>
 ## Installation
