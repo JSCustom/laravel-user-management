@@ -102,6 +102,9 @@ class UserController extends Controller
                 return response(['status' => false, 'message' => HttpServiceProvider::FORBIDDEN_ACCESS_MESSAGE], HttpServiceProvider::FORBIDDEN_ACCESS);
             }
         }
+        if (!$id) {
+            $id = Auth::user()->id;
+        }
         $user = $this->_user->find($id);
         if (!$user) {
             return response(['status' => false, 'message' => 'Could not find user.'], HttpServiceProvider::BAD_REQUEST);
