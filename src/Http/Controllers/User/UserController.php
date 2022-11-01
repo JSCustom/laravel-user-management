@@ -37,12 +37,15 @@ class UserController extends Controller
         $user->data->userAddress;
         return response(['status' => $user->status, 'message' => $user->message, 'payload' => ['user' => $user->data]], HttpServiceProvider::CREATED);
     }
-    public function edit(Request $request, $id)
+    public function edit(Request $request, $id = null)
     {
         if (config('user.sanctum.enabled')) {
             if (!Auth::user()->tokenCan('user-edit')) {
                 return response(['status' => false, 'message' => HttpServiceProvider::FORBIDDEN_ACCESS_MESSAGE], HttpServiceProvider::FORBIDDEN_ACCESS);
             }
+        }
+        if (!$id) {
+            $id = Auth::user()->id;
         }
         $user = $this->_user->find($id);
         if (!$user) {
@@ -95,7 +98,7 @@ class UserController extends Controller
         $list = $this->_user->list($request);
         return response(['message' => 'Users found.', 'payload' => ['users' => $list]], HttpServiceProvider::OK);
     }
-    public function show(Request $request, $id)
+    public function show(Request $request, $id = null)
     {
         if (config('user.sanctum.enabled')) {
             if (!Auth::user()->tokenCan('user-view')) {

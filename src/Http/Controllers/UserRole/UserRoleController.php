@@ -22,12 +22,15 @@ class UserRoleController extends Controller
         }
         return response(['status' => $userRole->status, 'message' => $userRole->message, 'payload' => ['user_role' => $userRole->data]], HttpServiceProvider::CREATED);
     }
-    public function edit(Request $request, $id)
+    public function edit(Request $request, $id = null)
     {
         if (config('user.sanctum.enabled')) {
             if (!Auth::user()->tokenCan('user-role-edit')) {
                 return response(['status' => false, 'message' => HttpServiceProvider::FORBIDDEN_ACCESS_MESSAGE], HttpServiceProvider::FORBIDDEN_ACCESS);
             }
+        }
+        if (!$id) {
+            $id = Auth::user()->id;
         }
         $userRole = $this->_userRole->find($id);
         if (!$userRole) {
@@ -63,12 +66,15 @@ class UserRoleController extends Controller
         $list = $this->_userRole->list($request);
         return response(['message' => 'User roles found.', 'payload' => ['user_roles' => $list]], HttpServiceProvider::OK);
     }
-    public function show(Request $request, $id)
+    public function show(Request $request, $id = null)
     {
         if (config('user.sanctum.enabled')) {
             if (!Auth::user()->tokenCan('user-role-view')) {
                 return response(['status' => false, 'message' => HttpServiceProvider::FORBIDDEN_ACCESS_MESSAGE], HttpServiceProvider::FORBIDDEN_ACCESS);
             }
+        }
+        if (!$id) {
+            $id = Auth::user()->id;
         }
         $userRole = $this->_userRole->find($id);
         if (!$userRole) {
